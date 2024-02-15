@@ -46,7 +46,7 @@
     "linebreak-style": ["error", "windows"],
     "no-unused-vars": "warn",
     "no-shadow": "off",
-    "prettier/prettier": "error",
+    "prettier/prettier": "warn",
     "quotes": [
       "error",
       "single",

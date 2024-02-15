@@ -22,6 +22,15 @@ const config: Config = {
       },
     },
     extend: {
+      animation: {
+        'open-menu': 'open-menu 0.3s ease-in-out forwards',
+      },
+      keyframes: {
+        'open-menu': {
+          '0%': { transform: 'scaleX(0)' },
+          '100%': { transform: 'scaleX(1)' },
+        },
+      },
       spacing: {},
     },
     screens: {

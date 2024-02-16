@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.pattern-background {
+  background-image: url('/assets/home/desktop/pattern-circles.svg');
+  background-size: 31.25rem;
+  background-position: center -100px;
+}
+
+.pattern-background-lg {
+  background-image: url('/assets/home/desktop/pattern-circles.svg');
+  background-size: 50rem;
+  background-position: -90px -50px;
+  column-gap: 8.625rem;
+  place-items: center;
+}
+
+.speaker-background-mobile {
+  background-image: url('/assets/home/mobile/image-speaker-zx7.jpg');
+}
+
+@media (min-width: 600px) {
+  .speaker-background-mobile {
+    background-image: none;
+  }
+  .speaker-background-tablet {
+    background-image: url('/assets/home/tablet/image-speaker-zx7.jpg');
+  }
+}
+
+@media (min-width: 1024px) {
+  .speaker-background-tablet {
+    background-image: none;
+  }
+  .speaker-background-desktop {
+    background-image: url('/assets/home/desktop/image-speaker-zx7.jpg');
+  }
+}

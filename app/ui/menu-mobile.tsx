@@ -51,7 +51,7 @@ const MenuMobile: React.FC = () => {
       </button>
       {isOpen && (
         <div
-          className={`bg-black-tertiary animate-open-menu fixed left-0 top-0 z-40 h-screen w-full origin-left`}
+          className={`fixed left-0 top-0 z-40 h-screen w-full origin-left animate-open-menu bg-black-tertiary`}
           ref={menuRef}
         >
           <button
@@ -60,7 +60,7 @@ const MenuMobile: React.FC = () => {
             tabIndex={0}
           >
             <svg
-              className='text-white-primary size-6'
+              className='size-6 text-white-primary'
               fill='none'
               viewBox='0 0 24 24'
               stroke='currentColor'
@@ -76,7 +76,7 @@ const MenuMobile: React.FC = () => {
           <div className='flex h-full flex-col items-center gap-y-10 pt-20 text-2xl'>
             <Link
               href='/headphones'
-              className='text-white-primary hover:text-secondary focus:text-secondary active:text-primary block px-4 py-2 uppercase'
+              className='block px-4 py-2 uppercase text-white-primary hover:text-secondary focus:text-secondary active:text-primary'
               tabIndex={0}
               onClick={toggleMenu}
             >
@@ -84,7 +84,7 @@ const MenuMobile: React.FC = () => {
             </Link>
             <Link
               href='/speakers'
-              className='text-white-primary hover:text-secondary focus:text-secondary active:text-primary block px-4 py-2 uppercase'
+              className='block px-4 py-2 uppercase text-white-primary hover:text-secondary focus:text-secondary active:text-primary'
               tabIndex={0}
               onClick={toggleMenu}
             >
@@ -92,7 +92,7 @@ const MenuMobile: React.FC = () => {
             </Link>
             <Link
               href='/earphones'
-              className='text-white-primary hover:text-secondary focus:text-secondary active:text-primary block px-4 py-2 uppercase'
+              className='block px-4 py-2 uppercase text-white-primary hover:text-secondary focus:text-secondary active:text-primary'
               tabIndex={0}
               onClick={toggleMenu}
             >

@@ -24,6 +24,7 @@ const MenuMobile: React.FC = () => {
 
     return () => {
       document.removeEventListener('keydown', handleKeyPress);
+      document.body.classList.remove('overflow-y-hidden');
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
@@ -50,16 +51,16 @@ const MenuMobile: React.FC = () => {
       </button>
       {isOpen && (
         <div
-          className='fixed left-0 top-0 z-40 h-screen w-full overflow-y-hidden bg-black-tertiary'
+          className={`fixed left-0 top-0 z-40 h-screen w-full origin-left animate-open-menu bg-black-tertiary`}
           ref={menuRef}
         >
           <button
-            className='absolute ml-5 mt-7 p-1'
+            className='absolute ml-5 mt-7 p-1 md:ml-9'
             onClick={toggleMenu}
             tabIndex={0}
           >
             <svg
-              className='size-6 text-white-primary hover:text-secondary'
+              className='size-6 text-white-primary'
               fill='none'
               viewBox='0 0 24 24'
               stroke='currentColor'
@@ -77,6 +78,7 @@ const MenuMobile: React.FC = () => {
               href='/headphones'
               className='block px-4 py-2 uppercase text-white-primary hover:text-secondary focus:text-secondary active:text-primary'
               tabIndex={0}
+              onClick={toggleMenu}
             >
               Headphones
             </Link>
@@ -84,6 +86,7 @@ const MenuMobile: React.FC = () => {
               href='/speakers'
               className='block px-4 py-2 uppercase text-white-primary hover:text-secondary focus:text-secondary active:text-primary'
               tabIndex={0}
+              onClick={toggleMenu}
             >
               Speakers
             </Link>
@@ -91,6 +94,7 @@ const MenuMobile: React.FC = () => {
               href='/earphones'
               className='block px-4 py-2 uppercase text-white-primary hover:text-secondary focus:text-secondary active:text-primary'
               tabIndex={0}
+              onClick={toggleMenu}
             >
               Earphones
             </Link>

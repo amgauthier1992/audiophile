@@ -22,6 +22,15 @@ const config: Config = {
       },
     },
     extend: {
+      animation: {
+        'open-menu': 'open-menu 0.3s ease-in-out forwards',
+      },
+      keyframes: {
+        'open-menu': {
+          '0%': { transform: 'scaleX(0)' },
+          '100%': { transform: 'scaleX(1)' },
+        },
+      },
       spacing: {},
     },
     screens: {
@@ -31,6 +40,8 @@ const config: Config = {
       'lg': '1024px',
       'xl': '1280px',
       '2xl': '1440px',
+      '3xl': '1536px',
+      '4xl': '1920px',
     },
   },
   plugins: [require('tailwind-scrollbar')],

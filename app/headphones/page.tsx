@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-import Button from '@/app/ui/button';
+import ButtonLink from '@/app/ui/button-link';
 
 const Headphones: React.FC = () => {
   return (
@@ -40,7 +40,7 @@ const Headphones: React.FC = () => {
               premium headphone experience by reproducing the balanced depth and precision of
               studio-quality sound.
             </p>
-            <Button
+            <ButtonLink
               cta='View Product'
               href='/headphones/3'
               variant='primary'
@@ -72,7 +72,7 @@ const Headphones: React.FC = () => {
               accurate audio reproduction for audiophiles, mixing engineers, and music aficionados
               alike in studios and on the go.
             </p>
-            <Button
+            <ButtonLink
               cta='View Product'
               href='/headphones/2'
               variant='primary'
@@ -102,7 +102,7 @@ const Headphones: React.FC = () => {
               XX59 headphones. The stylish yet durable versatile wireless headset is a brilliant
               companion at home or on the move.
             </p>
-            <Button
+            <ButtonLink
               cta='View Product'
               href='/headphones/1'
               variant='primary'

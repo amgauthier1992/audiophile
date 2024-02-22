@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-import Button from '@/app/ui/button';
+import ButtonLink from '@/app/ui/button-link';
 
 const Earphones: React.FC = () => {
   return (
@@ -38,7 +38,7 @@ const Earphones: React.FC = () => {
               Wireless Earphones. Enjoy incredible high-fidelity sound even in noisy environments
               with its active noise cancellation feature.
             </p>
-            <Button
+            <ButtonLink
               cta='View Product'
               href='/earphones/1'
               variant='primary'

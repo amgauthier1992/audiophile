@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-import Button from '@/app/ui/button';
+import ButtonLink from '@/app/ui/button-link';
 
 const Home: React.FC = () => {
   return (
@@ -33,7 +33,7 @@ const Home: React.FC = () => {
             Experience natural, lifelike audio and exceptional build quality made for the passionate
             music enthusiast.
           </p>
-          <Button
+          <ButtonLink
             cta='View Product'
             href='/headphones/3'
             variant='primary'
@@ -129,7 +129,7 @@ const Home: React.FC = () => {
               Upgrade to premium speakers that are phenomenally built to deliver truly remarkable
               sound.
             </p>
-            <Button
+            <ButtonLink
               cta='View Product'
               href='/speakers/2'
               linkClasses='mx-auto text-center'
@@ -149,7 +149,7 @@ const Home: React.FC = () => {
               Upgrade to premium speakers that are phenomenally built to deliver truly remarkable
               sound.
             </p>
-            <Button
+            <ButtonLink
               cta='View Product'
               href='/speakers/2'
               linkClasses='mr-auto block w-[160px]'
@@ -159,7 +159,7 @@ const Home: React.FC = () => {
         </div>
         <div className='speaker-background-mobile speaker-background-tablet speaker-background-desktop flex w-full flex-col gap-y-4 rounded-md bg-cover bg-no-repeat px-6 py-[101px] md:px-10'>
           <h2 className='text-[1.75rem] font-bold uppercase'>ZX7 Speaker</h2>
-          <Button
+          <ButtonLink
             cta='View Product'
             href='/speakers/1'
             linkClasses='mr-auto block w-[160px]'
@@ -174,7 +174,7 @@ const Home: React.FC = () => {
           />
           <div className='flex flex-col items-center gap-y-4 md:w-9/12'>
             <h2 className='text-[1.75rem] font-bold uppercase'>YX1 Earphones</h2>
-            <Button
+            <ButtonLink
               cta='View Product'
               href='/earphones/1'
               linkClasses='md:mr-[50px]'

@@ -1,12 +1,13 @@
-interface ButtonProps {
+import Link from 'next/link';
+
+interface ButtonLinkProps {
   cta: string;
-  onClick: (
-    event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>,
-  ) => void;
+  href: string;
+  linkClasses?: string;
   variant: string;
 }
 
-const Button: React.FC<ButtonProps> = ({ cta, onClick, variant }) => {
+const ButtonLink: React.FC<ButtonLinkProps> = ({ cta, href, linkClasses, variant }) => {
   let variantClasses: string = '';
 
   if (variant === 'primary') {
@@ -24,14 +25,19 @@ const Button: React.FC<ButtonProps> = ({ cta, onClick, variant }) => {
   }
 
   return (
-    <button
-      className={`h-[48px] w-[160px] text-[.8125rem] font-bold uppercase ${variantClasses}`}
-      onClick={onClick}
-      type='button'
+    <Link
+      className={linkClasses ? linkClasses : ''}
+      href={href}
+      tabIndex={0}
     >
-      {cta}
-    </button>
+      <button
+        className={`h-[48px] w-[160px] text-[.8125rem] font-bold uppercase ${variantClasses}`}
+        type='button'
+      >
+        {cta}
+      </button>
+    </Link>
   );
 };
 
-export default Button;
+export default ButtonLink;

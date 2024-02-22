@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-import Button from '@/app/ui/button';
+import ButtonLink from '@/app/ui/button-link';
 
 const Speakers: React.FC = () => {
   return (
@@ -36,7 +36,7 @@ const Speakers: React.FC = () => {
               speaker system that offers truly wireless connectivity -- creating new possibilities
               for more pleasing and practical audio setups.
             </p>
-            <Button
+            <ButtonLink
               cta='View Product'
               href='/speakers/2'
               variant='primary'
@@ -66,7 +66,7 @@ const Speakers: React.FC = () => {
               high-end audiophile components that represents the top of the line powered speakers
               for home or studio use.
             </p>
-            <Button
+            <ButtonLink
               cta='View Product'
               href='/speakers/1'
               variant='primary'

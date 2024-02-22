@@ -31,8 +31,10 @@ export interface Product {
     third: Image;
   };
   others: {
+    id: number;
     slug: string;
     name: string;
     image: Image;
+    type: string;
   }[];
 }

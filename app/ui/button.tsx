@@ -26,7 +26,7 @@ const Button: React.FC<ButtonProps> = ({ cta, onClick, otherClasses, variant }) 
 
   return (
     <button
-      className={`h-[48px] w-[160px] text-[.8125rem] font-bold uppercase ${variantClasses} ${otherClasses}`}
+      className={`h-[48px] w-[160px] text-[.8125rem] font-bold uppercase ${variantClasses} ${otherClasses ? otherClasses : ''}`}
       onClick={onClick}
       type='button'
     >

@@ -11,7 +11,7 @@ import {
   incrementItemQuantity,
   selectCartItems,
 } from '@/app/ui/cart/cartSlice';
-import Button from '@/app/ui/button';
+import ButtonLink from '../button-link';
 import QuantitySelector from '@/app/ui/quantity-selector';
 
 interface CartModalProps {
@@ -55,7 +55,7 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className='fixed inset-0 z-50 bg-[#292828d6] bg-opacity-50'>
+    <div className='fixed inset-0 z-50 overflow-auto bg-[#292828d6] bg-opacity-50'>
       <div className='absolute top-28 flex h-[488px] w-full flex-col justify-between rounded-lg bg-white-primary px-6 py-8 shadow-lg md:right-8 md:w-[377px] lg:right-20 xl:right-40 2xl:right-56 3xl:right-60 4xl:right-80'>
         <div className='flex flex-row items-start justify-between'>
           <h2 className='text-[1.4rem] font-bold leading-[1.55rem]'>{`Cart (${cartItems?.length})`}</h2>
@@ -104,7 +104,7 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose }) => {
         </div>
         <div className='flex w-full flex-col gap-y-6'>
           <button
-            className='w-[80 px] mr-auto text-sm font-semibold text-[#10101080]'
+            className='w-[80 px] mr-auto text-sm font-semibold text-[#10101080] underline hover:text-black-tertiary'
             onClick={handleClearCart}
           >
             Remove all
@@ -113,9 +113,11 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose }) => {
             <p>Total</p>
             <p className='text-[1.1rem] font-bold'>{formatCurrency(cartTotal)}</p>
           </div>
-          <Button
+          <ButtonLink
             cta='Checkout'
-            onClick={() => {}}
+            disabled={cartTotal === 0}
+            onClick={onClose}
+            href='/checkout'
             otherClasses='grow w-full'
             variant='primary'
           />

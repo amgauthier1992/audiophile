@@ -201,7 +201,7 @@ const Home: React.FC = () => {
             alt='Man listening to headphones'
           />
           <div className='flex flex-col gap-y-8 lg:justify-center'>
-            <h2 className='text-center text-2xl font-bold uppercase lg:text-left'>
+            <h2 className='text-center text-2xl font-bold uppercase md:text-3xl lg:text-left'>
               Bringing You The <span className='text-primary'>Best</span> Audio gear
             </h2>
             <p className='mx-auto text-center text-[#10101080] md:w-9/12 lg:mx-0 lg:w-full lg:text-left'>

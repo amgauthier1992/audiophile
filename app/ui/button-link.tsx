@@ -38,7 +38,7 @@ const ButtonLink: React.FC<ButtonLinkProps> = ({
   if (disabled) {
     return (
       <button
-        className={`h-[48px] w-[160px] text-[.8125rem] font-bold uppercase ${variantClasses} ${otherClasses ? otherClasses : ''} pointer-events-none bg-[#CCCCCC]`}
+        className={`disabled pointer-events-none h-[48px] w-[160px] cursor-not-allowed bg-black-primary text-[.8125rem] font-bold uppercase text-white-primary opacity-25 ${otherClasses ? otherClasses : ''} `}
         disabled
         type='button'
       >

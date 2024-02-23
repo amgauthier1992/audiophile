@@ -80,10 +80,14 @@ export const cartSlice = createSlice({
       }
     },
     clearCart: (state: CartState) => {
-      state.items = [];
-      toast.info('Item(s) removed!', {
-        toastId: 'itemRemoved',
-      });
+      if (state.items.length === 0) {
+        return;
+      } else {
+        state.items = [];
+        toast.info('Item(s) removed!', {
+          toastId: 'itemRemoved',
+        });
+      }
     },
     decrementItemQuantity: (
       state: CartState,

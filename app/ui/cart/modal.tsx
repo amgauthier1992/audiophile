@@ -116,7 +116,7 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose }) => {
           </div>
           <ButtonLink
             cta='Checkout'
-            disabled={cartTotal === 0}
+            disabled={!cartItems?.length}
             onClick={onClose}
             href='/checkout'
             otherClasses='grow w-full'

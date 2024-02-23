@@ -1,9 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 
+import cartReducer from '@/app/ui/cart/cartSlice';
+
 /* eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types */
 export const makeStore = () => {
   return configureStore({
-    reducer: {},
+    reducer: {
+      cart: cartReducer,
+    },
   });
 };
 

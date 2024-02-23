@@ -3,10 +3,11 @@ interface ButtonProps {
   onClick: (
     event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>,
   ) => void;
+  otherClasses?: string;
   variant: string;
 }
 
-const Button: React.FC<ButtonProps> = ({ cta, onClick, variant }) => {
+const Button: React.FC<ButtonProps> = ({ cta, onClick, otherClasses, variant }) => {
   let variantClasses: string = '';
 
   if (variant === 'primary') {
@@ -25,7 +26,7 @@ const Button: React.FC<ButtonProps> = ({ cta, onClick, variant }) => {
 
   return (
     <button
-      className={`h-[48px] w-[160px] text-[.8125rem] font-bold uppercase ${variantClasses}`}
+      className={`h-[48px] w-[160px] text-[.8125rem] font-bold uppercase ${variantClasses} ${otherClasses}`}
       onClick={onClick}
       type='button'
     >

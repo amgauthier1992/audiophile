@@ -6,26 +6,48 @@ import Link from 'next/link';
 
 import { HEADPHONES } from '@/app/lib/data';
 import { Product } from '@/app/lib/definitions';
+import { useAppDispatch } from '@/app/lib/hooks';
 import { formatCurrency } from '@/app/lib/utils';
+import { addToCart } from '@/app/ui/cart/cartSlice';
 import Button from '@/app/ui/button';
 import LinkButton from '@/app/ui/button-link';
 import QuantitySelector from '@/app/ui/quantity-selector';
 
 const HeadphonesProduct: React.FC<{ params: { productId: string } }> = ({ params }) => {
   const headphones: Product | undefined = HEADPHONES.find((h) => h.id === Number(params.productId));
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState<number>(1);
+  const dispatch = useAppDispatch();
 
-  const incrementQuantity = useCallback(() => {
-    setQuantity((prevQuantity) => prevQuantity + 1);
+  const incrementQuantity: () => void = useCallback(() => {
+    if (quantity < 99) {
+      setQuantity((prevQuantity: number) => prevQuantity + 1);
+    }
   }, []);
 
-  const decrementQuantity = useCallback(() => {
+  const decrementQuantity: () => void = useCallback(() => {
     if (quantity > 1) {
-      setQuantity((prevQuantity) => prevQuantity - 1);
+      setQuantity((prevQuantity: number) => prevQuantity - 1);
     }
   }, [quantity]);
 
-  const handleAddToCart = useCallback(() => {}, []);
+  const handleAddToCart = useCallback(
+    (
+      e: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>,
+      item: Product,
+    ) => {
+      const itemToAdd = {
+        id: item.id,
+        type: 'HEADPHONES',
+        name: item.shortName,
+        price: item.price,
+        image: item.cartImage,
+        quantity: quantity,
+      };
+
+      dispatch(addToCart(itemToAdd));
+    },
+    [dispatch, quantity],
+  );
 
   return (
     <>
@@ -76,7 +98,7 @@ const HeadphonesProduct: React.FC<{ params: { productId: string } }> = ({ params
               />
               <Button
                 cta='Add to Cart'
-                onClick={handleAddToCart}
+                onClick={(e) => headphones && handleAddToCart(e, headphones)}
                 variant='primary'
               />
             </div>
@@ -159,7 +181,7 @@ const HeadphonesProduct: React.FC<{ params: { productId: string } }> = ({ params
                 alt={headphones?.name}
               />
             </div>
-            <div className=''>
+            <div>
               <img
                 className='w-full rounded-md xs:hidden lg:block'
                 src={headphones?.gallery.third.desktop}
@@ -171,7 +193,7 @@ const HeadphonesProduct: React.FC<{ params: { productId: string } }> = ({ params
         <div className='suggestions flex w-full flex-col items-center gap-y-12'>
           <h2 className='pb-6 text-2xl font-bold uppercase md:pb-0'>You May Also Like</h2>
           <div className='flex flex-col items-center gap-y-12 md:flex-row'>
-            {headphones?.others.map((product, i) => (
+            {headphones?.others.map((product) => (
               <div
                 key={product.name}
                 className='flex flex-col items-center gap-y-4'

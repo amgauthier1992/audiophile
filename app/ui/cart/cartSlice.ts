@@ -1,6 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
+
 import { RootState } from '@/app/lib/store';
+import { loadCart } from '@/app/lib/utils';
 
 //Define a type for our individual cart items
 type CartItem = {
@@ -22,14 +24,15 @@ const initialState: CartState = {
   items: [],
 };
 
+const persistedCart: CartState | undefined = loadCart();
+
 export const cartSlice = createSlice({
   name: 'cart',
-  // `createSlice` will infer the state type from the `initialState` argument
-  initialState,
+  initialState: persistedCart ? persistedCart : initialState,
   reducers: {
     addToCart: (state: CartState, action: PayloadAction<CartItem>) => {
       const newItem = action.payload;
-      const existingItemIndex = state.items.findIndex(
+      const existingItemIndex: number = state.items.findIndex(
         (item) => item.id === newItem.id && item.type === newItem.type,
       );
 
@@ -39,17 +42,32 @@ export const cartSlice = createSlice({
       }
 
       if (existingItemIndex !== -1) {
-        // Item already exists in cart, update its quantity
-        state.items[existingItemIndex].quantity += newItem.quantity;
-        toast.success('Item(s) added!', {
-          toastId: 'itemAdded',
-        });
+        // if existing quantity + new quantity is more than 99, don't add to cart
+        if (state.items[existingItemIndex].quantity + newItem.quantity > 99) {
+          toast.error('Max product limit of 99 reached', {
+            toastId: 'maxProduct',
+          });
+          return;
+        } else {
+          // Item already exists in cart, update its quantity
+          state.items[existingItemIndex].quantity += newItem.quantity;
+          toast.success('Item(s) added!', {
+            toastId: 'itemAdded',
+          });
+        }
       } else {
-        // Item does not exist in cart, add it
-        state.items.push(action.payload);
-        toast.success('Item(s) added!', {
-          toastId: 'itemAdded',
-        });
+        if (newItem.quantity > 99) {
+          toast.error('Max product limit of 99 reached', {
+            toastId: 'maxProduct',
+          });
+          return;
+        } else {
+          // Item does not exist in cart, add it
+          state.items.push(action.payload);
+          toast.success('Item(s) added!', {
+            toastId: 'itemAdded',
+          });
+        }
       }
     },
     assignItemQuantityByAmount: (
@@ -57,7 +75,10 @@ export const cartSlice = createSlice({
       action: PayloadAction<{ id: number; quantity: number; type: string }>,
     ) => {
       const { id, quantity, type } = action.payload;
-      const itemIndex = state.items.findIndex((item) => item.id === id && item.type === type);
+      const itemIndex: number = state.items.findIndex(
+        (item) => item.id === id && item.type === type,
+      );
+
       if (itemIndex !== -1) {
         if (quantity === 0) {
           state.items.splice(itemIndex, 1); // Remove the item if quantity is 0
@@ -94,7 +115,10 @@ export const cartSlice = createSlice({
       action: PayloadAction<{ id: number; type: string }>,
     ) => {
       const { id, type } = action.payload;
-      const itemIndex = state.items.findIndex((item) => item.id === id && item.type === type);
+      const itemIndex: number = state.items.findIndex(
+        (item) => item.id === id && item.type === type,
+      );
+
       if (itemIndex !== -1) {
         if (state.items[itemIndex].quantity === 1) {
           state.items.splice(itemIndex, 1); // Remove the item if quantity is 1 and is being changed to 0
@@ -114,7 +138,10 @@ export const cartSlice = createSlice({
       action: PayloadAction<{ id: number; type: string }>,
     ) => {
       const { id, type } = action.payload;
-      const item = state.items.find((item) => item.id === id && item.type === type);
+      const item: CartItem | undefined = state.items.find(
+        (item) => item.id === id && item.type === type,
+      );
+
       if (item && item.quantity < 99) {
         item.quantity += 1;
         toast.success('Item(s) added!', {

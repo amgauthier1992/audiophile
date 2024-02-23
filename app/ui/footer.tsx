@@ -18,6 +18,15 @@ const Footer: React.FC = () => {
             <li className='text-sm/[13px] font-[600] uppercase'>
               <Link
                 className='text-white-primary hover:text-secondary focus:text-secondary active:text-primary'
+                href='/'
+                tabIndex={0}
+              >
+                Home
+              </Link>
+            </li>
+            <li className='text-sm/[13px] font-[600] uppercase'>
+              <Link
+                className='text-white-primary hover:text-secondary focus:text-secondary active:text-primary'
                 href='/headphones'
                 tabIndex={0}
               >

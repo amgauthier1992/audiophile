@@ -13,8 +13,10 @@ export interface Image {
 export interface Product {
   id: number;
   slug: string;
+  shortName: string;
   name: string;
   image: Image;
+  cartImage: string;
   category: string;
   categoryImage: Image;
   new: boolean;

@@ -1,9 +1,9 @@
 'use client';
 
 import Cart from '@/app/ui/cart';
+import Logo from '@/app/ui/logo';
 import Menu from '@/app/ui/menu';
 import MenuMobile from '@/app/ui/menu-mobile';
-import Logo from '@/app/ui/logo';
 
 const Header: React.FC = () => {
   return (

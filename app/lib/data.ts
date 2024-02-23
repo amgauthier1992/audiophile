@@ -4,12 +4,14 @@ export const EARPHONES: Product[] = [
   {
     id: 1,
     slug: 'yx1-earphones',
+    shortName: 'YX1',
     name: 'YX1 Wireless Earphones',
     image: {
       mobile: '/assets/product-yx1-earphones/mobile/image-product-no-bg.png',
       tablet: '/assets/product-yx1-earphones/tablet/image-product-no-bg.png',
       desktop: '/assets/product-yx1-earphones/desktop/image-product-no-bg.png',
     },
+    cartImage: '/assets/cart/image-yx1-earphones-no-bg.png',
     category: 'earphones',
     categoryImage: {
       mobile: '/assets/product-yx1-earphones/mobile/image-category-page-preview.jpg',
@@ -103,12 +105,14 @@ export const HEADPHONES: Product[] = [
   {
     id: 1,
     slug: 'xx59-headphones',
+    shortName: 'XX59',
     name: 'XX59 Headphones',
     image: {
       mobile: '/assets/product-xx59-headphones/mobile/image-product-no-bg.png',
       tablet: '/assets/product-xx59-headphones/tablet/image-product-no-bg.png',
       desktop: '/assets/product-xx59-headphones/desktop/image-product-no-bg.png',
     },
+    cartImage: '/assets/cart/image-xx59-headphones-no-bg.png',
     category: 'headphones',
     categoryImage: {
       mobile: '/assets/product-xx59-headphones/mobile/image-category-page-preview.jpg',
@@ -195,12 +199,14 @@ export const HEADPHONES: Product[] = [
   {
     id: 2,
     slug: 'xx99-mark-one-headphones',
+    shortName: 'XX99 MK I',
     name: 'XX99 Mark I Headphones',
     image: {
       mobile: '/assets/product-xx99-mark-one-headphones/mobile/image-product-no-bg.png',
       tablet: '/assets/product-xx99-mark-one-headphones/tablet/image-product-no-bg.png',
       desktop: '/assets/product-xx99-mark-one-headphones/desktop/image-product-no-bg.png',
     },
+    cartImage: '/assets/cart/image-xx99-mark-one-headphones-no-bg.png',
     category: 'headphones',
     categoryImage: {
       mobile: '/assets/product-xx99-mark-one-headphones/mobile/image-category-page-preview.jpg',
@@ -253,7 +259,7 @@ export const HEADPHONES: Product[] = [
         id: 3,
         type: 'headphones',
         slug: 'xx99-mark-two-headphones',
-        name: 'XX99 Mark II',
+        name: 'XX99 Mark II Headphones',
         image: {
           mobile: '/assets/shared/mobile/image-xx99-mark-two-headphones-no-bg.png',
           tablet: '/assets/shared/tablet/image-xx99-mark-two-headphones-no-bg.png',
@@ -287,12 +293,14 @@ export const HEADPHONES: Product[] = [
   {
     id: 3,
     slug: 'xx99-mark-two-headphones',
+    shortName: 'XX99 MK II',
     name: 'XX99 Mark II Headphones',
     image: {
       mobile: '/assets/product-xx99-mark-two-headphones/mobile/image-product-no-bg.png',
       tablet: '/assets/product-xx99-mark-two-headphones/tablet/image-product-no-bg.png',
       desktop: '/assets/product-xx99-mark-two-headphones/desktop/image-product-no-bg.png',
     },
+    cartImage: '/assets/cart/image-xx99-mark-two-headphones-no-bg.png',
     category: 'headphones',
     categoryImage: {
       mobile: '/assets/product-xx99-mark-two-headphones/mobile/image-category-page-preview.jpg',
@@ -386,12 +394,14 @@ export const SPEAKERS: Product[] = [
   {
     id: 1,
     slug: 'zx7-speaker',
+    shortName: 'ZX7',
     name: 'ZX7 Speaker',
     image: {
       mobile: '/assets/product-zx7-speaker/mobile/image-product-no-bg.png',
       tablet: '/assets/product-zx7-speaker/tablet/image-product-no-bg.png',
       desktop: '/assets/product-zx7-speaker/desktop/image-product-no-bg.png',
     },
+    cartImage: '/assets/cart/image-zx7-speaker-no-bg.png',
     category: 'speakers',
     categoryImage: {
       mobile: '/assets/product-zx7-speaker/mobile/image-category-page-preview.jpg',
@@ -482,12 +492,14 @@ export const SPEAKERS: Product[] = [
   {
     id: 2,
     slug: 'zx9-speaker',
+    shortName: 'ZX9',
     name: 'ZX9 Speaker',
     image: {
       mobile: '/assets/product-zx9-speaker/mobile/image-product-no-bg.png',
       tablet: '/assets/product-zx9-speaker/tablet/image-product-no-bg.png',
       desktop: '/assets/product-zx9-speaker/desktop/image-product-no-bg.png',
     },
+    cartImage: '/assets/cart/image-zx9-speaker-no-bg.png',
     category: 'speakers',
     categoryImage: {
       mobile: '/assets/product-zx9-speaker/mobile/image-category-page-preview.jpg',

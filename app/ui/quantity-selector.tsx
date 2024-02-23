@@ -1,32 +1,48 @@
 'use client';
 
+import { useCallback } from 'react';
+
 import { CallbackVoid } from '@/app/lib/definitions';
 
 interface QuantitySelectorProps {
-  quantity: number;
-  incrementQuantity: CallbackVoid;
   decrementQuantity: CallbackVoid;
-  setQuantity: (value: number) => void;
+  incrementQuantity: CallbackVoid;
+  isCartComponent?: boolean;
+  itemId?: number | undefined;
+  itemType?: string | undefined;
+  quantity: number;
+  setQuantity: (value: number, itemId?: number, itemType?: string) => void;
 }
 
 const QuantitySelector: React.FC<QuantitySelectorProps> = ({
-  quantity,
-  incrementQuantity,
   decrementQuantity,
+  incrementQuantity,
+  isCartComponent,
+  itemId,
+  itemType,
+  quantity,
   setQuantity,
 }) => {
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = parseInt(e.target.value);
-    if (!isNaN(value) && value > 0) {
-      setQuantity(value);
-    }
-  };
+  const handleInputChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const value: number = parseInt(e.target.value);
+
+      if (isCartComponent && itemId && itemType && !isNaN(value) && value <= 99) {
+        setQuantity(value, itemId, itemType);
+      }
+
+      if (!isCartComponent && !isNaN(value) && value > 0 && value <= 99) {
+        setQuantity(value);
+      }
+    },
+    [quantity],
+  );
 
   return (
     <div className='flex items-center'>
       <button
         aria-label='Decrease quantity'
-        className='text-gray-200 focus:border-blue-500 rounded-l-md bg-white-primary px-4 py-1 hover:text-primary focus:border focus:outline-none'
+        className='text-gray-200 rounded-l-md bg-white-primary px-4 py-1 hover:text-primary focus:border focus:outline-none'
         onClick={decrementQuantity}
         tabIndex={0}
       >
@@ -36,20 +52,20 @@ const QuantitySelector: React.FC<QuantitySelectorProps> = ({
         aria-label='Quantity'
         aria-live='assertive'
         type='number'
-        min={1}
+        min={isCartComponent ? 0 : 1}
         max={99}
-        className='focus:border-blue-500 appearance-none px-4 py-1 text-center font-bold text-black-primary hover:border-primary focus:border focus:outline-none'
+        className='appearance-none px-4 py-1 text-center font-bold text-black-primary hover:border-primary focus:border focus:outline-none'
         value={quantity}
         onChange={handleInputChange}
         style={{
           MozAppearance: 'textfield',
-          width: '5ch',
+          width: '6ch',
         }}
         tabIndex={0}
       />
       <button
         aria-label='Increase quantity'
-        className='text-gray-200 focus:border-blue-500 rounded-r-md bg-white-primary px-4 py-1 hover:text-primary focus:border focus:outline-none'
+        className='text-gray-200 rounded-r-md bg-white-primary px-4 py-1 hover:text-primary focus:border focus:outline-none'
         onClick={incrementQuantity}
         tabIndex={0}
       >

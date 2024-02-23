@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
+import { toast } from 'react-toastify';
 import { RootState } from '@/app/lib/store';
 
 //Define a type for our individual cart items
@@ -41,9 +41,15 @@ export const cartSlice = createSlice({
       if (existingItemIndex !== -1) {
         // Item already exists in cart, update its quantity
         state.items[existingItemIndex].quantity += newItem.quantity;
+        toast.success('Item(s) added!', {
+          toastId: 'itemAdded',
+        });
       } else {
         // Item does not exist in cart, add it
         state.items.push(action.payload);
+        toast.success('Item(s) added!', {
+          toastId: 'itemAdded',
+        });
       }
     },
     assignItemQuantityByAmount: (
@@ -55,13 +61,22 @@ export const cartSlice = createSlice({
       if (itemIndex !== -1) {
         if (quantity === 0) {
           state.items.splice(itemIndex, 1); // Remove the item if quantity is 0
+          toast.info('Item(s) removed!', {
+            toastId: 'itemRemoved',
+          });
         } else {
           state.items[itemIndex].quantity = quantity; // Otherwise, update quantity
+          toast.success('Item(s) added!', {
+            toastId: 'itemAdded',
+          });
         }
       }
     },
     clearCart: (state: CartState) => {
       state.items = [];
+      toast.info('Item(s) removed!', {
+        toastId: 'itemRemoved',
+      });
     },
     decrementItemQuantity: (
       state: CartState,
@@ -72,8 +87,14 @@ export const cartSlice = createSlice({
       if (itemIndex !== -1) {
         if (state.items[itemIndex].quantity === 1) {
           state.items.splice(itemIndex, 1); // Remove the item if quantity is 1 and is being changed to 0
+          toast.info('Item(s) removed!', {
+            toastId: 'itemRemoved',
+          });
         } else {
           state.items[itemIndex].quantity -= 1; // Otherwise, decrement quantity normally
+          toast.info('Item(s) removed!', {
+            toastId: 'itemRemoved',
+          });
         }
       }
     },
@@ -85,6 +106,9 @@ export const cartSlice = createSlice({
       const item = state.items.find((item) => item.id === id && item.type === type);
       if (item && item.quantity < 99) {
         item.quantity += 1;
+        toast.success('Item(s) added!', {
+          toastId: 'itemAdded',
+        });
       }
     },
   },

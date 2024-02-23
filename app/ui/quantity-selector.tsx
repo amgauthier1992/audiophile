@@ -1,5 +1,7 @@
 'use client';
 
+import { useCallback } from 'react';
+
 import { CallbackVoid } from '@/app/lib/definitions';
 
 interface QuantitySelectorProps {
@@ -21,17 +23,20 @@ const QuantitySelector: React.FC<QuantitySelectorProps> = ({
   quantity,
   setQuantity,
 }) => {
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value: number = parseInt(e.target.value);
+  const handleInputChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const value: number = parseInt(e.target.value);
 
-    if (isCartComponent && itemId && itemType && !isNaN(value) && value <= 99) {
-      setQuantity(value, itemId, itemType);
-    }
+      if (isCartComponent && itemId && itemType && !isNaN(value) && value <= 99) {
+        setQuantity(value, itemId, itemType);
+      }
 
-    if (!isCartComponent && !isNaN(value) && value > 0 && value <= 99) {
-      setQuantity(value);
-    }
-  };
+      if (!isCartComponent && !isNaN(value) && value > 0 && value <= 99) {
+        setQuantity(value);
+      }
+    },
+    [quantity],
+  );
 
   return (
     <div className='flex items-center'>

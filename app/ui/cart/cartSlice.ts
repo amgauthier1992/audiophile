@@ -65,10 +65,17 @@ export const cartSlice = createSlice({
             toastId: 'itemRemoved',
           });
         } else {
-          state.items[itemIndex].quantity = quantity; // Otherwise, update quantity
-          toast.success('Item(s) added!', {
-            toastId: 'itemAdded',
-          });
+          if (quantity > state.items[itemIndex].quantity) {
+            state.items[itemIndex].quantity = quantity;
+            toast.success('Item(s) added!', {
+              toastId: 'itemAdded',
+            });
+          } else {
+            state.items[itemIndex].quantity = quantity;
+            toast.info('Item(s) removed!', {
+              toastId: 'itemRemoved',
+            });
+          }
         }
       }
     },

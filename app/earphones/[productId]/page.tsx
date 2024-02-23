@@ -51,9 +51,9 @@ const EarphonesProduct: React.FC<{ params: { productId: string } }> = ({ params 
 
   return (
     <>
-      <div className='flex h-[50px] w-full items-center px-6 md:hidden'>
+      <div className='flex h-[50px] w-full items-center px-6 md:px-10 lg:px-20 xl:px-40 2xl:px-56 3xl:px-60 4xl:px-80'>
         <Link
-          className='text-black-primary'
+          className='text-[#10101080] hover:text-black-tertiary'
           href='/earphones'
         >
           Go Back

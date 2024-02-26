@@ -1,17 +1,12 @@
 'use client';
 
-import { useCallback, useState } from 'react';
 import Image from 'next/image';
 
 import CartModal from '@/app/ui/cart/modal';
-import { CallbackVoid } from '@/app/lib/definitions';
+import { useCart } from '@/app/ui/cart/context';
 
 const Cart: React.FC = () => {
-  const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
-
-  const toggleCart: CallbackVoid = useCallback(() => {
-    setIsCartOpen(!isCartOpen);
-  }, [isCartOpen]);
+  const { isCartOpen, toggleCart } = useCart();
 
   return (
     <div className='relative'>

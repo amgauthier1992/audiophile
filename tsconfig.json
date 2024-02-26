@@ -26,7 +26,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "./app/lib/placeholder-data.js"
+    "./app/lib/data.ts",
+    "app/ui/cart/context.tsx"
   ],
   "exclude": ["node_modules"]
 }

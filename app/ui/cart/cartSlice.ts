@@ -5,7 +5,7 @@ import { RootState } from '@/app/lib/store';
 import { loadCart } from '@/app/lib/utils';
 
 //Define a type for our individual cart items
-type CartItem = {
+export type CartItem = {
   id: number;
   type: string; //we need this to differentiate between items that have the same id from different product categories
   name: string;

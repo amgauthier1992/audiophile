@@ -11,7 +11,7 @@ interface CartContextType {
 
 const initialCartContext: CartContextType = {
   isCartOpen: false,
-  toggleCart: () => {}, // Placeholder function
+  toggleCart: () => {},
 };
 
 const CartContext = createContext<CartContextType>(initialCartContext);

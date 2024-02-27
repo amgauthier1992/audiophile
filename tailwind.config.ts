@@ -10,10 +10,11 @@ const config: Config = {
     colors: {
       primary: '#D87D4A',
       secondary: '#FBAF85',
+      error: '#CD2C2C',
       black: {
         primary: '#000000',
         secondary: '#101010',
-        tertiary: '#1c1c1c',
+        tertiary: '#1C1C1C',
       },
       white: {
         primary: '#FFFFFF',

@@ -11,8 +11,9 @@ import {
   incrementItemQuantity,
   selectCartItems,
 } from '@/app/ui/cart/cartSlice';
-import ButtonLink from '../button-link';
 import QuantitySelector from '@/app/ui/quantity-selector';
+
+import ButtonLink from '../button-link';
 
 interface CartModalProps {
   isOpen: boolean;
@@ -49,12 +50,11 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose }) => {
   );
 
   const handleClearCart = useCallback(() => {
-    dispatch(clearCart());
+    dispatch(clearCart(false));
   }, [dispatch]);
 
   if (!isOpen) return null;
 
-  //To-do: Fix double scroll bars for landscape mobile
   return (
     <div className='fixed inset-0 z-50 overflow-auto bg-[#292828d6] bg-opacity-50'>
       <div className='absolute top-28 flex h-[488px] w-full flex-col justify-between rounded-lg bg-white-primary px-6 py-8 shadow-lg md:right-8 md:w-[377px] lg:right-20 xl:right-40 2xl:right-56 3xl:right-60 4xl:right-80'>

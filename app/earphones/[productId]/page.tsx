@@ -99,6 +99,7 @@ const EarphonesProduct: React.FC<{ params: { productId: string } }> = ({ params 
               <Button
                 cta='Add to Cart'
                 onClick={(e) => earphones && handleAddToCart(e, earphones)}
+                type='button'
                 variant='primary'
               />
             </div>

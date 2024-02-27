@@ -76,12 +76,12 @@ I have recently embarked on a journey to learn TypeScript as it seems to be a mu
 
 I was able to expand my knowledge of the following topics:
 
--Type Definitions and Interfaces
--Type Annotations and Inference
--Union Types
--Types related to events (HTMLInputElement, HTMLButtonElement, React.MouseEvent, React.KeyboardEvent)
--Types related to Redux Toolkit (RootState, PayloadAction)
--Tooling/Build Config (eslint/tsconfig.json)
+- Type Definitions and Interfaces
+- Type Annotations and Inference
+- Union Types
+- Types related to events (HTMLInputElement, HTMLButtonElement, React.MouseEvent, React.KeyboardEvent)
+- Types related to Redux Toolkit (RootState, PayloadAction)
+- Tooling/Build Config (eslint/tsconfig.json)
 
 #### Next.js
 

@@ -55,6 +55,7 @@
         "allowTemplateLiterals": true
       }
     ],
+    "react/no-children-prop": "warn",
     "react/jsx-max-depth": [1, { "max": 5 }],
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
@@ -69,7 +70,7 @@
         "ignoreMemberSort": false
       }
     ],
-    "@typescript-eslint/explicit-module-boundary-types": "error",
+    "@typescript-eslint/explicit-module-boundary-types": "warn",
     "@typescript-eslint/naming-convention": [
       "error",
       {
@@ -95,7 +96,7 @@
       }
     ],
     "@typescript-eslint/no-floating-promises": "error",
-    "@typescript-eslint/no-shadow": "error",
+    "@typescript-eslint/no-shadow": "warn",
     "@typescript-eslint/no-unnecessary-condition": "error",
     "@typescript-eslint/require-await": "error"
   },

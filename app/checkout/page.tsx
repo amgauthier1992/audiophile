@@ -8,8 +8,7 @@ import { Controller, SubmitErrorHandler, SubmitHandler, useForm } from 'react-ho
 import RadioGroup from '@/app/ui/radio';
 import TextField from '@/app/ui/textfield';
 import OrderSummary from '@/app/checkout/summary';
-
-import CheckoutSuccessModal from './success';
+import CheckoutSuccessModal from '@/app/checkout/success';
 
 interface FormData {
   firstName: string;

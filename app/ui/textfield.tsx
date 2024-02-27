@@ -34,7 +34,7 @@ const TextField: React.FC<TextFieldProps> = ({
         {label}
       </label>
       <input
-        className={`focus:primary rounded-md border border-[#cfcfcf] p-3 hover:border-primary focus:outline-none focus:ring-1 focus:ring-primary ${error ? 'hover:border-error border-error focus:ring-error focus:outline-none focus:ring-1' : ''}`}
+        className={`focus:primary rounded-md border border-[#cfcfcf] p-3 hover:border-primary focus:outline-none focus:ring-1 focus:ring-primary ${error ? 'border-error hover:border-error focus:outline-none focus:ring-1 focus:ring-error' : ''}`}
         name={label}
         onChange={handleInputChange}
         placeholder={placeholder}

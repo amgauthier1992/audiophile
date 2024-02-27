@@ -55,7 +55,7 @@ const RadioGroup: React.FC<RadioGroupProps> = ({ error, inputRef, legend, onChan
               </label>
             </div>
           ))}
-          {error ? <p className='text-error text-sm'>{error}</p> : null}
+          {error ? <p className='text-sm text-error'>{error}</p> : null}
         </div>
       </div>
     </fieldset>

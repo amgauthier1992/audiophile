@@ -6,6 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import Header from '@/app/ui/header';
 import Footer from '@/app/ui/footer';
 import { manrope } from '@/app/ui/fonts';
+
 import { useCart } from './ui/cart/context';
 
 import '@/app/global.css';

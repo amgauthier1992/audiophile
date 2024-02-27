@@ -23,7 +23,7 @@ const OrderSummary: React.FC = () => {
       <section className='order-summary lg:w-2/5'>
         <h3 className='self-start text-xl font-bold uppercase'>Summary</h3>
         <div className='mt-12 flex items-center justify-center'>
-          <div className='h-12 w-12 animate-spin rounded-full border-b-4 border-t-4 border-primary'></div>
+          <div className='size-12 animate-spin rounded-full border-y-4 border-primary'></div>
         </div>
       </section>
     );

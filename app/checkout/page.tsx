@@ -8,6 +8,7 @@ import { Controller, SubmitErrorHandler, SubmitHandler, useForm } from 'react-ho
 import RadioGroup from '@/app/ui/radio';
 import TextField from '@/app/ui/textfield';
 import OrderSummary from '@/app/checkout/summary';
+
 import CheckoutSuccessModal from './success';
 
 interface FormData {
@@ -50,122 +51,119 @@ const Checkout: React.FC = () => {
 
   const [successModalOpen, setSuccessModalOpen] = useState<boolean>(false);
 
-  const onError: SubmitErrorHandler<FormData> = useCallback(
-    (errors) => {
-      if (errors.firstName) {
-        const firstNameElement = firstNameRef.current;
-        if (firstNameElement) {
-          firstNameElement.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
-          firstNameElement.focus();
-        }
-      } else if (errors.lastName) {
-        const lastNameElement = lastNameRef.current;
-        if (lastNameElement) {
-          lastNameElement.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
-          lastNameElement.focus();
-        }
-      } else if (errors.email) {
-        const emailElement = emailRef.current;
-        if (emailElement) {
-          emailElement.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
-          emailElement.focus();
-        }
-      } else if (errors.phoneNumber) {
-        const phoneNumberElement = phoneNumberRef.current;
-        if (phoneNumberElement) {
-          phoneNumberElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'end',
-            inline: 'nearest',
-          });
-          phoneNumberElement.focus();
-        }
-      } else if (errors.address) {
-        const phoneNumberElement = phoneNumberRef.current;
-        if (phoneNumberElement) {
-          phoneNumberElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'end',
-            inline: 'nearest',
-          });
-          phoneNumberElement.focus();
-        }
-      } else if (errors.country) {
-        const countryElement = countryRef.current;
-        if (countryElement) {
-          countryElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'end',
-            inline: 'nearest',
-          });
-          countryElement.focus();
-        }
-      } else if (errors.city) {
-        const cityElement = cityRef.current;
-        if (cityElement) {
-          cityElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'end',
-            inline: 'nearest',
-          });
-          cityElement.focus();
-        }
-      } else if (errors.stateCode) {
-        const stateElement = stateCodeRef.current;
-        if (stateElement) {
-          stateElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'end',
-            inline: 'nearest',
-          });
-          stateElement.focus();
-        }
-      } else if (errors.zipCode) {
-        const zipCodeElement = zipCodeRef.current;
-        if (zipCodeElement) {
-          zipCodeElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'end',
-            inline: 'nearest',
-          });
-          zipCodeElement.focus();
-        }
-      } else if (errors.paymentMethod) {
-        const paymentMethodElement = paymentMethodRef.current;
-        if (paymentMethodElement) {
-          paymentMethodElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'end',
-            inline: 'nearest',
-          });
-          paymentMethodElement.focus();
-        }
-      } else if (errors.eMoneyNumber) {
-        const eMoneyNumberElement = eMoneyNumberRef.current;
-        if (eMoneyNumberElement) {
-          eMoneyNumberElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'end',
-            inline: 'nearest',
-          });
-          eMoneyNumberElement.focus();
-        }
-      } else if (errors.eMoneyPin) {
-        const eMoneyPinElement = eMoneyPinRef.current;
-        if (eMoneyPinElement) {
-          eMoneyPinElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'end',
-            inline: 'nearest',
-          });
-          eMoneyPinElement.focus();
-        }
-      } else {
-        //do nothing (?)
+  const onError: SubmitErrorHandler<FormData> = useCallback((errors) => {
+    if (errors.firstName) {
+      const firstNameElement = firstNameRef.current;
+      if (firstNameElement) {
+        firstNameElement.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+        firstNameElement.focus();
       }
-    },
-    [errors],
-  );
+    } else if (errors.lastName) {
+      const lastNameElement = lastNameRef.current;
+      if (lastNameElement) {
+        lastNameElement.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+        lastNameElement.focus();
+      }
+    } else if (errors.email) {
+      const emailElement = emailRef.current;
+      if (emailElement) {
+        emailElement.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+        emailElement.focus();
+      }
+    } else if (errors.phoneNumber) {
+      const phoneNumberElement = phoneNumberRef.current;
+      if (phoneNumberElement) {
+        phoneNumberElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'end',
+          inline: 'nearest',
+        });
+        phoneNumberElement.focus();
+      }
+    } else if (errors.address) {
+      const phoneNumberElement = phoneNumberRef.current;
+      if (phoneNumberElement) {
+        phoneNumberElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'end',
+          inline: 'nearest',
+        });
+        phoneNumberElement.focus();
+      }
+    } else if (errors.country) {
+      const countryElement = countryRef.current;
+      if (countryElement) {
+        countryElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'end',
+          inline: 'nearest',
+        });
+        countryElement.focus();
+      }
+    } else if (errors.city) {
+      const cityElement = cityRef.current;
+      if (cityElement) {
+        cityElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'end',
+          inline: 'nearest',
+        });
+        cityElement.focus();
+      }
+    } else if (errors.stateCode) {
+      const stateElement = stateCodeRef.current;
+      if (stateElement) {
+        stateElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'end',
+          inline: 'nearest',
+        });
+        stateElement.focus();
+      }
+    } else if (errors.zipCode) {
+      const zipCodeElement = zipCodeRef.current;
+      if (zipCodeElement) {
+        zipCodeElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'end',
+          inline: 'nearest',
+        });
+        zipCodeElement.focus();
+      }
+    } else if (errors.paymentMethod) {
+      const paymentMethodElement = paymentMethodRef.current;
+      if (paymentMethodElement) {
+        paymentMethodElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'end',
+          inline: 'nearest',
+        });
+        paymentMethodElement.focus();
+      }
+    } else if (errors.eMoneyNumber) {
+      const eMoneyNumberElement = eMoneyNumberRef.current;
+      if (eMoneyNumberElement) {
+        eMoneyNumberElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'end',
+          inline: 'nearest',
+        });
+        eMoneyNumberElement.focus();
+      }
+    } else if (errors.eMoneyPin) {
+      const eMoneyPinElement = eMoneyPinRef.current;
+      if (eMoneyPinElement) {
+        eMoneyPinElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'end',
+          inline: 'nearest',
+        });
+        eMoneyPinElement.focus();
+      }
+    } else {
+      //do nothing (?)
+    }
+  }, []);
 
   const onSubmit: SubmitHandler<FormData> = useCallback((data, e) => {
     e?.preventDefault();
@@ -465,7 +463,7 @@ const Checkout: React.FC = () => {
             {watchPaymentMethod === 'cash' ? (
               <div className='flex flex-row py-6'>
                 <Image
-                  className='mr-6 h-[48px] w-[48px]'
+                  className='mr-6 size-[48px]'
                   src='/assets/checkout/icon-cash-on-delivery.svg'
                   alt='Cash on delivery'
                   width={48}

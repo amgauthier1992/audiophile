@@ -26,8 +26,8 @@ const CheckoutSuccessModal: React.FC = () => {
   if (!isMounted) {
     return (
       <div className='fixed inset-0 z-50 overflow-auto bg-[#292828d6] bg-opacity-50'>
-        <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform'>
-          <div className='h-12 w-12 animate-spin rounded-full border-b-4 border-t-4 border-primary'></div>
+        <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>
+          <div className='size-12 animate-spin rounded-full border-y-4 border-primary'></div>
         </div>
       </div>
     );
@@ -35,7 +35,7 @@ const CheckoutSuccessModal: React.FC = () => {
 
   return (
     <div className='fixed inset-0 z-50 overflow-auto bg-[#292828d6] bg-opacity-50'>
-      <div className='absolute left-1/2 top-1/2 flex h-[575px] w-full -translate-x-1/2 -translate-y-1/2 transform flex-col justify-between rounded-lg bg-white-primary px-6 py-8 shadow-lg md:right-8 md:w-[377px] lg:right-20 xl:right-40 2xl:right-56 3xl:right-60 4xl:right-80'>
+      <div className='absolute left-1/2 top-1/2 flex h-[575px] w-full -translate-x-1/2 -translate-y-1/2 flex-col justify-between rounded-lg bg-white-primary px-6 py-8 shadow-lg md:right-8 md:w-[377px] lg:right-20 xl:right-40 2xl:right-56 3xl:right-60 4xl:right-80'>
         <div className='flex flex-col gap-y-4'>
           <Image
             src='/assets/checkout/icon-order-confirmation.svg'

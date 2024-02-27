@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
+
 import AppProvider from '@/app/app-provider';
 import App from '@/app/app';
 

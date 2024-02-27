@@ -11,8 +11,9 @@ import {
   incrementItemQuantity,
   selectCartItems,
 } from '@/app/ui/cart/cartSlice';
-import ButtonLink from '../button-link';
 import QuantitySelector from '@/app/ui/quantity-selector';
+
+import ButtonLink from '../button-link';
 
 interface CartModalProps {
   isOpen: boolean;

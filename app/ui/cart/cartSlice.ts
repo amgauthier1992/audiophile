@@ -100,14 +100,18 @@ export const cartSlice = createSlice({
         }
       }
     },
-    clearCart: (state: CartState) => {
+    clearCart: (state: CartState, action: PayloadAction<boolean>) => {
+      const orderCompleted = action.payload;
+
       if (state.items.length === 0) {
         return;
       } else {
         state.items = [];
-        toast.info('Item(s) removed!', {
-          toastId: 'itemRemoved',
-        });
+        if (!orderCompleted) {
+          toast.info('Item(s) removed!', {
+            toastId: 'itemRemoved',
+          });
+        }
       }
     },
     decrementItemQuantity: (

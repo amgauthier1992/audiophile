@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useRef } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Controller, SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form';
@@ -8,6 +8,7 @@ import { Controller, SubmitErrorHandler, SubmitHandler, useForm } from 'react-ho
 import RadioGroup from '@/app/ui/radio';
 import TextField from '@/app/ui/textfield';
 import OrderSummary from '@/app/checkout/summary';
+import CheckoutSuccessModal from './success';
 
 interface FormData {
   firstName: string;
@@ -46,6 +47,8 @@ const Checkout: React.FC = () => {
   const eMoneyPinRef = useRef<HTMLInputElement>(null);
 
   const watchPaymentMethod: string = watch('paymentMethod');
+
+  const [successModalOpen, setSuccessModalOpen] = useState<boolean>(false);
 
   const onError: SubmitErrorHandler<FormData> = useCallback(
     (errors) => {
@@ -166,8 +169,7 @@ const Checkout: React.FC = () => {
 
   const onSubmit: SubmitHandler<FormData> = useCallback((data, e) => {
     e?.preventDefault();
-    console.log('onSubmit', data);
-    //open success modal
+    setSuccessModalOpen(true);
   }, []);
 
   return (
@@ -480,6 +482,7 @@ const Checkout: React.FC = () => {
         </section>
         <OrderSummary />
       </form>
+      {successModalOpen && <CheckoutSuccessModal />}
     </>
   );
 };

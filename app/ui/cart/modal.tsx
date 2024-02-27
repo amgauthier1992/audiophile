@@ -49,7 +49,7 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose }) => {
   );
 
   const handleClearCart = useCallback(() => {
-    dispatch(clearCart());
+    dispatch(clearCart(false));
   }, [dispatch]);
 
   if (!isOpen) return null;

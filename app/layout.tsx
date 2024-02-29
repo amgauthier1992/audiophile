@@ -1,45 +1,35 @@
 import React from 'react';
-// import type { Metadata } from 'next';
-import Head from 'next/head';
+import type { Metadata } from 'next';
 
 import AppProvider from '@/app/app-provider';
 import App from '@/app/app';
 
-// export const metadata: Metadata = {
-//   title: 'Audiophile | E-commerce',
-//   description:
-//     'E-commerce website for those who are enthusiastic about high-fidelity sound reproduction',
-// };
+export const metadata: Metadata = {
+  title: 'Audiophile | E-commerce',
+  description:
+    'E-commerce website for those who are enthusiastic about high-fidelity sound reproduction',
+  openGraph: {
+    title: 'Audiophile | E-commerce',
+    description:
+      'E-commerce website for those who are enthusiastic about high-fidelity sound reproduction',
+    images: [
+      {
+        url: 'https://audiophile-teal.vercel.app/public/assets/home/mobile/image-header-1.jpg',
+        width: 750,
+        height: 1200,
+        alt: 'XX99 Mark II Headphones',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+};
 
 const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>): JSX.Element => {
   return (
-    <>
-      <Head>
-        <title>Audiophile | E-commerce</title>
-        <meta
-          name='description'
-          content='E-commerce website for those who are enthusiastic about high-fidelity sound reproduction'
-        />
-        <meta
-          name='title'
-          property='og:title'
-          content='Audiophile | E-commerce'
-        />
-        <meta
-          name='description'
-          property='og:description'
-          content='E-commerce website for those who are enthusiastic about high-fidelity sound reproduction'
-        />
-        <meta
-          name='image'
-          property='og:image'
-          content='/assets/home/mobile/image-header-1.jpg'
-        />
-      </Head>
-      <AppProvider>
-        <App children={children} />
-      </AppProvider>
-    </>
+    <AppProvider>
+      <App children={children} />
+    </AppProvider>
   );
 };
 

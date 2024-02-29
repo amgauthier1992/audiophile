@@ -14,14 +14,17 @@ const Home: React.FC = () => {
           content='E-commerce website for those who are enthusiastic about high-fidelity sound reproduction'
         />
         <meta
+          name='title'
           property='og:title'
           content='Audiophile | E-commerce'
         />
         <meta
+          name='description'
           property='og:description'
           content='E-commerce website for those who are enthusiastic about high-fidelity sound reproduction'
         />
         <meta
+          name='image'
           property='og:image'
           content='/assets/home/mobile/image-header-1.jpg'
         />

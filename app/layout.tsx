@@ -14,7 +14,7 @@ export const metadata: Metadata = {
       'E-commerce website for those who are enthusiastic about high-fidelity sound reproduction',
     images: [
       {
-        url: 'https://audiophile-teal.vercel.app/public/assets/home/mobile/image-header-1.jpg',
+        url: 'https://audiophile-teal.vercel.app/assets/home/mobile/image-header-1.jpg',
         width: 750,
         height: 1200,
         alt: 'XX99 Mark II Headphones',

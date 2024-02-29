@@ -1,11 +1,31 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import Head from 'next/head';
 
 import ButtonLink from '@/app/ui/button-link';
 
 const Home: React.FC = () => {
   return (
     <>
+      <Head>
+        <title>Audiophile | E-commerce</title>
+        <meta
+          name='description'
+          content='E-commerce website for those who are enthusiastic about high-fidelity sound reproduction'
+        />
+        <meta
+          property='og:title'
+          content='Audiophile | E-commerce'
+        />
+        <meta
+          property='og:description'
+          content='E-commerce website for those who are enthusiastic about high-fidelity sound reproduction'
+        />
+        <meta
+          property='og:image'
+          content='/assets/home/mobile/image-header-1.jpg'
+        />
+      </Head>
       <div className='hero-container relative'>
         <img
           alt='XX99 Mark Two Headphones'

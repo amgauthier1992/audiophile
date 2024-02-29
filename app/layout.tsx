@@ -15,8 +15,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: 'https://audiophile-teal.vercel.app/public/assets/home/mobile/image-header-1.jpg',
-        width: 800,
-        height: 600,
+        width: 750,
+        height: 1200,
         alt: 'XX99 Mark II Headphones',
       },
     ],

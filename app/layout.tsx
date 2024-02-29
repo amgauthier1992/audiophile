@@ -20,6 +20,18 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>): JSX.
           name='description'
           content='E-commerce website for those who are enthusiastic about high-fidelity sound reproduction'
         />
+        <meta
+          property='og:title'
+          content='Audiophile | E-commerce'
+        />
+        <meta
+          property='og:description'
+          content='E-commerce website for those who are enthusiastic about high-fidelity sound reproduction'
+        />
+        <meta
+          property='og:image'
+          content='/assets/home/mobile/image-header-1.jpg'
+        />
       </Head>
       <AppProvider>
         <App children={children} />

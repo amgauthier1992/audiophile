@@ -1,15 +1,15 @@
 import React from 'react';
-import type { Metadata } from 'next';
+// import type { Metadata } from 'next';
 import Head from 'next/head';
 
 import AppProvider from '@/app/app-provider';
 import App from '@/app/app';
 
-export const metadata: Metadata = {
-  title: 'Audiophile | E-commerce',
-  description:
-    'E-commerce website for those who are enthusiastic about high-fidelity sound reproduction',
-};
+// export const metadata: Metadata = {
+//   title: 'Audiophile | E-commerce',
+//   description:
+//     'E-commerce website for those who are enthusiastic about high-fidelity sound reproduction',
+// };
 
 const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>): JSX.Element => {
   return (
@@ -21,14 +21,17 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>): JSX.
           content='E-commerce website for those who are enthusiastic about high-fidelity sound reproduction'
         />
         <meta
+          name='title'
           property='og:title'
           content='Audiophile | E-commerce'
         />
         <meta
+          name='description'
           property='og:description'
           content='E-commerce website for those who are enthusiastic about high-fidelity sound reproduction'
         />
         <meta
+          name='image'
           property='og:image'
           content='/assets/home/mobile/image-header-1.jpg'
         />
